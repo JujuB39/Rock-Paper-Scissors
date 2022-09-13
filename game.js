@@ -1,21 +1,52 @@
 // define array for choices [r, p, s]
-// define var for computerChoice 
-// define var for playerChoice
-// define var for win 
-// define var for losses 
-// define var for ties
+var choices = ["R", "P", "S"];
 
-// prompt playerChoice
+// define var for computerChoice 
+var computerChoice;
+
+// define var for win, losses, ties
+var wins = 0;
+var losses = 0;
+var ties = 0;
+
+// define play again
+var playAgain = true;
+
+while(playAgain) {
+
+// define var for playerChoice
+var playerChoice = prompt("Chose R, P, or S");
 
 // randomly choose computerChoice
+var computerChoice = choices[Math.floor(Math.random() * choices.length)]
 
-// compare choices if else
+if (computerChoice === choices[0]) {
+    alert("Computer chose R");
+} else if (computerChoice === choices[1]) {
+    alert("Computer chose P")
+} else if (computerChoice === choices[2]) {
+    alert("Computer chose S")
+}
 
-// display (alert) results (won, tied, or lose)
+
+if (playerChoice === computerChoice) {
+    ties++;
+    alert("It's a tie!");
+}
+else if(((playerChoice === "R") && (computerChoice === "S")) 
+    || ((playerChoice === "P") && (computerChoice === "R")) 
+    || ((playerChoice ==="S") && (computerChoice === "P"))) {
+    wins++;
+    alert("You won!");
+}
+else {
+    losses++;
+    alert("You lost!");
+}
+
+alert("Wins: " + wins "\n" + "Losses: " + losses + "\n" + "Ties: " + ties )
 
 //stats (number of win, losses, or ties)
+playAgain = confirm("Play again?");
 
-// ask to play again ?
-    // restart the game 
-//else 
-    // end the game 
+}
